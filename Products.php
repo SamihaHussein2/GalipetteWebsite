@@ -33,14 +33,16 @@ $conn = mysqli_connect('localhost', 'root', '', 'galipette');
         }
         #lEFT JOIN category ON gallery.category=category.categoryID AND gallery.categoryName=category.nameC 
        
-        $sql="SELECT * FROM gallery ";
+        $sql="SELECT * FROM gallery JOIN Category on gallery.category = category.categoryID ";
         $result=$conn->query($sql);
 
-
+echo $sql;
         
 
         if ($result->num_rows > 0 ) {
-            while($row = $result->fetch_assoc() ) {
+            while($row = mysqli_fetch_array($result))
+
+             {
               
                 
                 
@@ -60,7 +62,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'galipette');
                 echo "<tbody><tr>";
                 echo "<td>".$row['id']."</td>";
                 echo "<td>".$row['name']."</td>";
-                echo "<td>".$row['category'].$row['categoryName']."</td>";
+                echo "<td>".$row['7']."</td>";
                 echo "<td>".$row['content']."</td>";
                 echo '<td><img src="data:image/jpeg/png/jpg;base64,'.base64_encode($row['image']).'"height="50" ></td>';
                 echo '<td><a href="edit.php?editGallery='.$row['id'].'">Edit</a></td>';
