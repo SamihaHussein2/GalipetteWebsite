@@ -86,7 +86,9 @@
                     RIGHT JOIN category ON category.nameC=gallery.categoryName 
                     AND category.categoryID='$id'";
                     $resultt=$conn->query($sqll);
-
+                    ?>
+                    <option value="item1" >Choose a category</option>
+                    <?php
                     if ($resultt->num_rows > 0) {
                         while($row = $resultt->fetch_assoc()) {
                             echo "<option value=".$row['categoryID'].">".$row['categoryID']."-".$row['nameC']."</option><br><br>";
@@ -110,6 +112,11 @@
 
                         if(isset($_POST["submit"])){
                             
+                            $selected = $_POST['category'];
+                            if ($selected == "item1" ) {
+                                echo '<script>alert("Please Choose a category ")</script>';
+                            }
+
                             # in this case image is not changed
                             if($_POST['image'] =" "){ 
                                 
