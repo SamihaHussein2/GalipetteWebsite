@@ -41,11 +41,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'galipette');
 
         if ($result->num_rows > 0 ) {
             while($row = $result->fetch_assoc() ) {
-              /*  echo "<h5>";
-                echo $row["name"];
-                echo "</h5><br><br>";
-                echo '<img src="data:image/jpg/png/jpeg;base64,' . base64_encode( $row['image'] ) . '" height="150" />';
-                echo "<br><br>"; */
+              
                 
                 
 
