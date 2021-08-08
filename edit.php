@@ -86,9 +86,7 @@
                     RIGHT JOIN category ON category.nameC=gallery.categoryName 
                     AND category.categoryID='$id'";
                     $resultt=$conn->query($sqll);
-                    ?>
-                    <option value="item1" >Choose a category</option>
-                    <?php
+                    echo "<option value='item1' > choose a category";
                     if ($resultt->num_rows > 0) {
                         while($row = $resultt->fetch_assoc()) {
                             echo "<option value=".$row['categoryID'].">".$row['categoryID']."-".$row['nameC']."</option><br><br>";
@@ -105,18 +103,13 @@
 
                     <?php
                         
-                        # need to solve the problem of changing the categories id when the user didn't change it
-                        # i think that we have to read from database the id of the previous input (from table gallery) 
-                            # then store it in a variable and then write a condidition to check if it's the same or empty 
-                               # if empty -> send the variable  if not send the new input normaly  
 
                         if(isset($_POST["submit"])){
-                            
-                            $selected = $_POST['category'];
-                            if ($selected == "item1" ) {
-                                echo '<script>alert("Please Choose a category ")</script>';
+                            echo $_POST["category"];
+                            if ($_POST["category"]== "item1")
+                            {
+                                $_POST["category"]= $category;
                             }
-
                             # in this case image is not changed
                             if($_POST['image'] =" "){ 
                                 
