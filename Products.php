@@ -36,7 +36,6 @@ $conn = mysqli_connect('localhost', 'root', '', 'galipette');
         $sql="SELECT * FROM gallery JOIN Category on gallery.category = category.categoryID ";
         $result=$conn->query($sql);
 
-echo $sql;
         
 
         if ($result->num_rows > 0 ) {
