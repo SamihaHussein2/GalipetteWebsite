@@ -3,10 +3,7 @@
 
 <head>
 <?php include "Admintrial.php";?>
-    <style>
-
-        
-    </style>
+    
 </head>
 
 
