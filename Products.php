@@ -33,10 +33,10 @@ $conn = mysqli_connect('localhost', 'root', '', 'galipette');
         }
         #lEFT JOIN category ON gallery.category=category.categoryID AND gallery.categoryName=category.nameC 
        
-        $sql="SELECT * FROM gallery JOIN Category on gallery.category = category.categoryID ";
+        $sql="SELECT * FROM gallery JOIN Category on gallery.category = category.categoryID
+        ORDER BY id ASC ";
         $result=$conn->query($sql);
 
-        
 
         if ($result->num_rows > 0 ) {
             while($row = mysqli_fetch_array($result))

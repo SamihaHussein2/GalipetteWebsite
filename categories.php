@@ -30,7 +30,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'galipette');
         die ( "connection failed".mysqli_connect_error());
     }
 
-    $sql="SELECT * FROM category";
+    $sql="SELECT * FROM category ORDER BY categoryID ASC ";
     $result=$conn->query($sql);
 
 
